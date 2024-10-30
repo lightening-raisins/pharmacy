@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class SceneSwitcher : MonoBehaviour
@@ -11,10 +10,11 @@ public class SceneSwitcher : MonoBehaviour
     public string targetSceneName;
     public Button specificButton;
 
-    private void Start()
+    void Start()
     {
         if (specificButton != null)
         {
+            // 為指定的按鈕添加點擊事件監聽器
             specificButton.onClick.AddListener(OnButtonClick);
         }
         else

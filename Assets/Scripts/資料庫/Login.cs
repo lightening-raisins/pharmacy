@@ -9,13 +9,34 @@ public class Login : MonoBehaviour
     public InputField UsernameInput;
     public InputField PasswordInput;
     public Button LoginButton;
+    public Button ForgotPasswordButton;
+    public GameObject ForgotPasswordPanel;
+    public InputField EmailInput;
+    public Button SearchEmailButton;
+    public Text ErrorMessageText;
+    public GameObject ErrorMessagePanel;
+
 
     void Start()
     {
-        LoginButton.onClick.AddListener(() =>
+        if (gameObject.activeInHierarchy)
         {
-            StartCoroutine(Log(UsernameInput.text, PasswordInput.text));
-        });
+            LoginButton.onClick.AddListener(() =>
+            {
+                StartCoroutine(Log(UsernameInput.text, PasswordInput.text));
+            });
+
+            ForgotPasswordButton.onClick.AddListener(() =>
+            {
+                ForgotPasswordPanel.SetActive(true);
+            });
+
+            ErrorMessagePanel.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning("Login GameObject is not active in hierarchy.");
+        }
     }
 
     public IEnumerator Log(string username, string password)
@@ -31,21 +52,30 @@ public class Login : MonoBehaviour
             if (www.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError(www.error);
+                ErrorMessageText.text = "Network error. Please try again.";
+                ErrorMessagePanel.SetActive(true);
             }
             else
             {
-                // 解析JSON響應
                 string jsonResponse = www.downloadHandler.text;
                 LoginResponse response = JsonUtility.FromJson<LoginResponse>(jsonResponse);
 
-                // 顯示結果
                 Debug.Log(response.loginResult);
 
-                // 根據響應結果切換場景
-                if (response.loginResult == "Login Success.")
+                if (response.loginResult == "登入成功")
                 {
                     yield return new WaitForSeconds(0.5f);
                     SceneManager.LoadScene("ModeChoose");
+                }
+                else if (response.loginResult == "帳號或密碼錯誤")
+                {
+                    ErrorMessageText.text = "帳號或密碼錯誤，請重新輸入。";
+                    ErrorMessagePanel.SetActive(true);
+                }
+                else
+                {
+                    ErrorMessageText.text = "使用者名稱不存在，請重新輸入。";
+                    ErrorMessagePanel.SetActive(true);
                 }
             }
         }
