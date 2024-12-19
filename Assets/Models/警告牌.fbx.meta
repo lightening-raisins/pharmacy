@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ec22754edf360ac449edc5025549f928
+guid: f1cee928b6055c54c91846287242b523
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,18 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: "\u6750\u8D28"
-    second: {fileID: 2100000, guid: e44f013bffffa1f41aa2401638f2c825, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "\u6750\u8D28.001"
-    second: {fileID: 2100000, guid: 350977219709f9b4c834d6e517aaa674, type: 2}
+      name: Material.002
+    second: {fileID: 2100000, guid: 78e8e634b830a7d45aefe065a9031dc0, type: 2}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

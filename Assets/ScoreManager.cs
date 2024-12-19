@@ -1,48 +1,55 @@
 using UnityEngine;
-using UnityEngine.UI;  // 確保引入了這個命名空間來使用Text UI元件
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    public GameObject intercomButton;  // 按對講機按鈕的物件
-    public Text scoreText;  // 用來顯示分數的UI Text元件
-    private bool step1Completed = false;
+    public Text scoreText;  // 用來顯示分數的 UI 元件
+    public int initialScore = 0;  // 初始分數（可選）
+
     private int score = 0;  // 儲存分數
 
     void Start()
     {
-        UpdateScoreUI();  // 初始時更新一次分數顯示
-    }
+        Debug.Log("ScoreManager initialized.");
 
-    void OnTriggerEnter(Collider other)
-    {
-        // 檢查碰撞的對象是否為VR手或控制器
-        if (other.CompareTag("hand") && !step1Completed)
+        // 確保 scoreText 元件已經正確設置
+        if (scoreText == null)
         {
-            OnIntercomButtonPressed();
+            Debug.LogError("ScoreText is not assigned in the Inspector.");
+            return;
         }
+
+        // 初始化分數
+        score = initialScore;
+        UpdateScoreUI();
     }
 
-
-    // 當按下對講機按鈕時觸發
-    void OnIntercomButtonPressed()
-    {
-        if (!step1Completed)
-        {
-            step1Completed = true;
-            AddScore(5);  // 完成按鈕動作加5分
-        }
-    }
-
-    // 添加分數並更新UI
+    // 添加分數並更新 UI
     public void AddScore(int points)
     {
-        score += points;
-        UpdateScoreUI();  // 每次加分後都更新UI顯示
+        score += points;  // 增加分數
+        UpdateScoreUI();  // 每次加分後都更新 UI 顯示
     }
 
-    // 更新UI上顯示的分數
+    // 更新 UI 上顯示的分數
     void UpdateScoreUI()
     {
-        scoreText.text = "Score: " + score.ToString();
+        if (scoreText != null)
+        {
+            scoreText.text = $"Score: {score}";  // 更新顯示的分數
+            Debug.Log("Score UI updated: " + scoreText.text);  // 輸出 UI 更新後的分數
+        }
+    }
+    // 獲取當前分數
+    public int GetScore()
+    {
+        return score;
+    }
+
+    // 重置分數並更新 UI
+    public void ResetScore()
+    {
+        score = 0;
+        UpdateScoreUI();
     }
 }

@@ -14,7 +14,7 @@ public class closewindow : MonoBehaviour
         // 檢測控制器按鈕是否被按下 (例如按下 X 鍵來關閉視窗)
         if (closeWindowAction.GetStateDown(SteamVR_Input_Sources.Any))
         {
-            Debug.Log("Close button pressed");
+            //Debug.Log("Close button pressed");
 
             if (isWindowReplaced)
             {
@@ -32,7 +32,6 @@ public class closewindow : MonoBehaviour
         if (popupWindow != null)
         {
             popupWindow.SetActive(false); // 關閉當前提示窗口
-            Debug.Log("Popup window closed");
 
             // 如果新視窗未被指派，則不需要執行任何其他操作
             if (newPopupWindow != null)
@@ -40,7 +39,6 @@ public class closewindow : MonoBehaviour
                 // 設置新窗口的位置和顯示
                 newPopupWindow.transform.position = popupWindow.transform.position; // 確保新窗口在相同位置
                 newPopupWindow.SetActive(true); // 顯示新窗口
-                Debug.Log("New popup window displayed");
             }
         }
         else

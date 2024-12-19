@@ -6,6 +6,25 @@ TagManager:
   tags:
   - Button
   - hand
+  - SpillObject
+  - cap
+  - water
+  - MineralWater
+  - BleachWater
+  - wetTissue
+  - WaterStream
+  - BleachStream
+  - EmptyBottle
+  - BiosafetyCabinet
+  - SafetyCabinet
+  - MixedStream
+  - Body
+  - GroundTrigger
+  - SinkSwitch
+  - Chair
+  - SprinklerBox
+  - SprinklerLid
+  - Barrier
   layers:
   - Default
   - TransparentFX
@@ -18,8 +37,8 @@ TagManager:
   - button
   - spiltbox
   - split
-  - 
-  - 
+  - SprinklerBox
+  - SprinklerLid
   - 
   - 
   - 

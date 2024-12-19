@@ -66,6 +66,10 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/Ybuttonaction",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -189,7 +193,8 @@
       "/actions/default/in/DirectMovement": "Direct Movement",
       "/actions/default/in/Abuttonaction": "Abuttonaction",
       "/actions/default/in/Bbuttonaction": "Bbuttonaction",
-      "/actions/default/in/XButtonaction": "XButtonaction"
+      "/actions/default/in/XButtonaction": "XButtonaction",
+      "/actions/default/in/Ybuttonaction": "YButtonaction"
     }
   ]
 }

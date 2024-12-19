@@ -35,13 +35,13 @@ public class ObjectController : MonoBehaviour
             Interactable thingInteractable = thing.GetComponent<Interactable>();
             if (thingInteractable != null)
             {
-                Destroy(thingInteractable);
+                thingInteractable.enabled = false;  // 禁用 Interactable，避免抓取
             }
 
             Throwable thingThrowable = thing.GetComponent<Throwable>();
             if (thingThrowable != null)
             {
-                Destroy(thingThrowable);
+                Destroy(thingThrowable);  // 移除 Throwable 組件
             }
 
             // 開始協程，延遲後讓 lid 可以被抓取
