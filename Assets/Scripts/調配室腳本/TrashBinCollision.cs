@@ -8,6 +8,7 @@ public class TrashBinCollision : MonoBehaviour
     public GameObject collisionObject; // 任由袋
     public GameObject trashBin; // 其他物件
     public GameObject appear; // 顯示效果物件
+    public ScoreManager scoreManager; // 拖入 ScoreManager 物件
 
     // 當物體發生碰撞時觸發
     private void OnCollisionEnter(Collision collision)
@@ -31,6 +32,15 @@ public class TrashBinCollision : MonoBehaviour
             if (appear != null)
             {
                 appear.SetActive(true);
+
+                if (scoreManager != null)
+                {
+                    scoreManager.AddScore(5);
+                }
+                else
+                {
+                    Debug.LogError("ScoreManager is not assigned in VRButtonHandler.");
+                }
             }
         }
     }

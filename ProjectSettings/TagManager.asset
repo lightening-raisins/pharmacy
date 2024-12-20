@@ -25,6 +25,12 @@ TagManager:
   - SprinklerBox
   - SprinklerLid
   - Barrier
+  - FoldedBarricade
+  - MedicineCabinet
+  - Broom
+  - Plane
+  - PlaneTrigger
+  - GlassJar
   layers:
   - Default
   - TransparentFX

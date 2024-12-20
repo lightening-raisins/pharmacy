@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2a4688c896bfca34bb4547d0aae60f16
+guid: 584fe18f61a9b954fbbfd5a9546e7b90
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,23 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Procedural Ground Moss
-    second: {fileID: 2100000, guid: 36d044aaf22f5c54a967d4e854aca6e8, type: 2}
+      name: initialShadingGroup2.002
+    second: {fileID: 2100000, guid: f324443ef8a6dad48924d8b77a75f5fa, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: "\u6750\u8D28"
-    second: {fileID: 2100000, guid: b07965f824f548b44ad6b61f61eae2c7, type: 2}
+      name: "\u6750\u8CEA.002"
+    second: {fileID: 2100000, guid: 95c61a0452ce01b48a2738e9ef29becb, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: "\u6750\u8D28.001"
-    second: {fileID: 2100000, guid: 36d044aaf22f5c54a967d4e854aca6e8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "\u6750\u8D28.002"
-    second: {fileID: 2100000, guid: b465b99f2c36c2543a2b9e9d70de06f2, type: 2}
+      name: "\u6750\u8D28.006"
+    second: {fileID: 2100000, guid: 3274c3d2093f702439e9d84d18d9165b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

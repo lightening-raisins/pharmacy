@@ -6,16 +6,16 @@ using Valve.VR.InteractionSystem;
 public class BarrierControl : MonoBehaviour
 {
     public GameObject foldingBarricade; // 摺疊封鎖線物件
+    public GameObject unfoldedBarricade;
     public GameObject button1; // 第一個按鈕
     public GameObject button2; // 第二個按鈕
-    public GameObject objectToShow; // 要顯示的物件
 
     private bool isBarricadeHidden = false; // 用來判斷摺疊封鎖線是否隱藏
 
     void Start()
     {
         // 初始化時隱藏要顯示的物件
-        objectToShow.SetActive(false);
+        unfoldedBarricade.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -25,7 +25,7 @@ public class BarrierControl : MonoBehaviour
         // 當摺疊封鎖線碰觸第一個按鈕
         if (other.gameObject == button1 && !isBarricadeHidden)
         {
-            SetObjectVisibility(foldingBarricade, false); // 隱藏摺疊封鎖線
+            button1.SetActive(false); // 隱藏第一個按鈕
             isBarricadeHidden = true;
             Debug.Log("Folding barricade hidden");
         }
@@ -33,8 +33,8 @@ public class BarrierControl : MonoBehaviour
         // 當任意物體碰觸到第二個按鈕，顯示物件
         else if (other.gameObject == button2 && isBarricadeHidden)
         {
-            objectToShow.SetActive(true); // 顯示物件
-            button1.SetActive(false); // 隱藏第一個按鈕
+            SetObjectVisibility(foldingBarricade, false); // 隱藏摺疊封鎖線
+            unfoldedBarricade.SetActive(true);
             button2.SetActive(false); // 隱藏第二個按鈕
             Debug.Log("objectToShow is now visible");
         }
