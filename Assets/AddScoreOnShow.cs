@@ -5,7 +5,7 @@ using UnityEngine;
 public class AddScoreOnShow : MonoBehaviour
 {
     public ScoreManager scoreManager; // 參考 ScoreManager 腳本
-    public int scoreToAdd = 5; // 顯示後要加的分數
+    public int scoreToAdd = 4; // 顯示後要加的分數
 
     private bool hasScored = false; // 確保每個物件只加一次分
 
