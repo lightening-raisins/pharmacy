@@ -8,6 +8,7 @@ public class PharmacySignSwitch : MonoBehaviour
     public GameObject foldedSign; // 摺疊的警示牌
     public GameObject unfoldedSign; // 展開的警示牌
     public GameObject collisionObject; // 預期碰撞的摺疊警示牌
+    public GameObject tips;
 
     void OnTriggerEnter(Collider other)
     {
@@ -32,6 +33,7 @@ public class PharmacySignSwitch : MonoBehaviour
 
                 // 顯示展開警示牌
                 unfoldedSign.SetActive(true);
+                if (tips != null) tips.SetActive(true);
             }
         }
     }

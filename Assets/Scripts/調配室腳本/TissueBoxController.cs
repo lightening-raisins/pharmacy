@@ -10,6 +10,9 @@ public class TissueBoxController : MonoBehaviour
     public GameObject singleTissue2; // 第二個單張擦手紙
     public GameObject conditionObject1; // 第一個條件物件
     public GameObject conditionObject2; // 第二個條件物件
+    public GameObject tips1;
+    public GameObject tips2;
+
     public SteamVR_Behaviour_Pose leftHandPose; // 左手的Pose
     public SteamVR_Behaviour_Pose rightHandPose; // 右手的Pose
     public Vector3 tissueOffset = new Vector3(0, 0.1f, 0); // 單張擦手紙相對於整盒擦手紙的偏移
@@ -52,6 +55,7 @@ public class TissueBoxController : MonoBehaviour
             {
                 Debug.Log("Both hands are touching the tissue box for the first tissue.");
                 singleTissue1.SetActive(true); // 顯示第一個單張擦手紙
+                if (tips1 != null) tips1.SetActive(true);
                 tissue1Shown = true; // 記錄已經顯示過第一個單張擦手紙
 
                 // 設置第一個單張擦手紙的位置，讓它在整盒擦手紙的上方
@@ -73,6 +77,7 @@ public class TissueBoxController : MonoBehaviour
             {
                 Debug.Log("Both hands are touching the tissue box for the second tissue.");
                 singleTissue2.SetActive(true); // 顯示第二個單張擦手紙
+                if (tips2 != null) tips2.SetActive(true);
                 tissue2Shown = true; // 記錄已經顯示過第二個單張擦手紙
 
                 // 設置第二個單張擦手紙的位置

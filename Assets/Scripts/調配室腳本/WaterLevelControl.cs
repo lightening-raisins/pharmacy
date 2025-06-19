@@ -11,9 +11,13 @@ public class WaterLevelControl : MonoBehaviour
     public GameObject highWater;
     // 混合水位物件
     public GameObject mixWaterLevel;
+    public GameObject tips1;
+    public GameObject tips2;
+    public GameObject tips3;    
 
     private bool isLowWaterTriggered = false; // 是否已觸發低水位
     private bool isHighWaterTriggered = false; // 是否已觸發高水位
+    private bool isHideCoroutineStarted = false;
     private string firstTriggeredTag = ""; // 記錄第一個碰到的水柱標籤
 
     public SteamVR_Input_Sources leftHandInputSource;
@@ -61,6 +65,7 @@ public class WaterLevelControl : MonoBehaviour
             if (lowWater != null)
             {
                 lowWater.SetActive(true);
+                if (tips1 != null) tips1.SetActive(true);
                 isLowWaterTriggered = true; // 標記低水位已觸發
                 firstTriggeredTag = other.tag; // 記錄第一個碰到的水柱類型
             }
@@ -75,6 +80,7 @@ public class WaterLevelControl : MonoBehaviour
                 if (highWater != null)
                 {
                     highWater.SetActive(true);
+                    if (tips2 != null) tips2.SetActive(true);
                     isHighWaterTriggered = true; // 標記高水位已觸發
                 }
             }
@@ -104,21 +110,27 @@ public class WaterLevelControl : MonoBehaviour
                     lowWater.SetActive(false);
                     highWater.SetActive(false);
                     mixWaterLevel.SetActive(true);
+                    if (tips3 != null) tips3.SetActive(true);
                     isShakeComplete = true;
                 }
             }
         }
 
-        // 更新手的最後旋轉
+        if (waterStream.activeSelf && (!mixWaterLevel.activeSelf || !isCapHidden))
+        {
+            waterStream.SetActive(false); // 避免誤觸導致水柱提前出現
+        }
+
         lastLeftHandRotation = currentLeftHandRotation;
         lastRightHandRotation = currentRightHandRotation;
 
         // 檢查瓶蓋隱藏條件
-        if (isShakeComplete && isCapVisible && !isCapHidden)
+        if (isShakeComplete && isCapVisible && !isCapHidden && !isHideCoroutineStarted)
         {
             if (BothHandsInteractingWithCap())
             {
-                StartCoroutine(HideCapWithDelay()); // 延遲隱藏瓶蓋
+                isHideCoroutineStarted = true; // 防止重複進入協程
+                StartCoroutine(HideCapWithDelay());
             }
         }
     }
@@ -126,10 +138,15 @@ public class WaterLevelControl : MonoBehaviour
     // 延遲3秒隱藏瓶蓋
     private IEnumerator HideCapWithDelay()
     {
-        yield return new WaitForSeconds(1.5f); // 延遲3秒
+        yield return new WaitForSeconds(0.5f); // 延遲
         cap.SetActive(false); // 隱藏瓶蓋
         isCapHidden = true;  // 防止重複隱藏
-        waterStream.SetActive(true); // 啟用水流
+
+        // 只有在 mixWaterLevel 已經顯示的狀態下，才啟用水柱
+        if (mixWaterLevel != null && mixWaterLevel.activeSelf)
+        {
+            waterStream.SetActive(true); // 啟用水流
+        }
     }
 
     // 檢查是否兩隻手接觸瓶蓋並正確操作

@@ -14,6 +14,9 @@ public class PharmacyZipBagController : MonoBehaviour
     public GameObject conditionObject1; // 第一個條件物件
     public GameObject conditionObject2; // 第二個條件物件
 
+    public GameObject tips1;
+    public GameObject tips2;
+
 
     [Header("手部 Pose")]
     public SteamVR_Behaviour_Pose leftHandPose;  // 左手 Pose
@@ -49,11 +52,13 @@ public class PharmacyZipBagController : MonoBehaviour
             {
                 ShowSingleZiplockBag(singleZiplockBag1);
                 ziplockBag1Shown = true;
+                if (tips1 != null) tips1.SetActive(true);
             }
             else if (conditionObject2.activeSelf && !ziplockBag2Shown)
             {
                 ShowSingleZiplockBag(singleZiplockBag2);
                 ziplockBag2Shown = true;
+                if (tips2 != null) tips2.SetActive(true);
             }
         }
     }

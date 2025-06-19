@@ -6,6 +6,7 @@ public class AbsorbPadController : MonoBehaviour
 {
     public GameObject[] absorbentPads; 
     private int currentPadIndex = 0;
+    public GameObject tips;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class AbsorbPadController : MonoBehaviour
             //Debug.Log("SpillObject detected, switching to next absorbent pad.");
 
             other.gameObject.SetActive(false);
+            if (tips != null) tips.SetActive(false);
 
             StartCoroutine(DisplayPads());
         }

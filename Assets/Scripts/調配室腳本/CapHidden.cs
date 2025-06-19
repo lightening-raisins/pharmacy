@@ -9,6 +9,7 @@ public class CapHidden : MonoBehaviour
     public GameObject cap;
     public GameObject water;
     public GameObject triggerObject; // 新增的 triggerObject
+    public GameObject tips;
 
     public SteamVR_Action_Boolean grabAction;
     public SteamVR_Behaviour_Pose leftHandPose;
@@ -59,6 +60,7 @@ public class CapHidden : MonoBehaviour
         if (hasTriggerObjectActivated && isBottleHeld && !isCapHidden && other.CompareTag("hand") && other.gameObject != grabbingHand)
         {
             cap.SetActive(false);
+            if (tips != null) tips.SetActive(true);
             isCapHidden = true; // 標記瓶蓋已經被隱藏
         }
     }

@@ -8,6 +8,7 @@ public class TrashBinCollision : MonoBehaviour
     public GameObject collisionObject; // 任由袋
     public GameObject trashBin; // 其他物件
     public GameObject appear; // 顯示效果物件
+
     public ScoreManager scoreManager; // 拖入 ScoreManager 物件
 
     // 當物體發生碰撞時觸發

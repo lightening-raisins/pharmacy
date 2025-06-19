@@ -65,7 +65,7 @@ public class Login : MonoBehaviour
                 if (response.loginResult == "登入成功")
                 {
                     yield return new WaitForSeconds(0.5f);
-                    SceneManager.LoadScene("ModeChoose");
+                    SceneManager.LoadScene("Practice");
                 }
                 else if (response.loginResult == "帳號或密碼錯誤")
                 {

@@ -5,27 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: "Assets/Scenes/\u8ABF\u914D\u5BA4(\u7DF4\u7FD2).unity"
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
-    path: "Assets/Scenes/\u8ABF\u914D\u5BA4\u5730\u677F\u6F51\u7051.unity"
-    guid: 93e8d3c381a267c4b96523b11b536127
-  - enabled: 0
-    path: "Assets/UI/\u5834\u666F/loginmenu.unity"
+    path: "Assets/Scenes/UI/\u5834\u666F/loginmenu.unity"
     guid: 9b95efb21a3bf9b428691c5dcac5f835
   - enabled: 0
-    path: "Assets/UI/\u5834\u666F/ModeChoose.unity"
-    guid: e55d2a47751389d41b94981d59d464b7
-  - enabled: 0
-    path: "Assets/UI/\u5834\u666F/Practice.unity"
+    path: "Assets/Scenes/UI/\u5834\u666F/Practice.unity"
     guid: 456e730ada800684da735c2845f978c2
   - enabled: 0
-    path: "Assets/UI/\u5834\u666F/test.unity"
+    path: "Assets/Scenes/UI/\u5834\u666F/FindAccount.unity"
     guid: 7b6ed1dcd0e4100458558953c05de25b
+  - enabled: 1
+    path: "Assets/Scenes/\u85E5\u5C40(\u7DF4\u7FD2).unity"
+    guid: ec37c247b13c44849932f5ca538b00a4
   - enabled: 0
-    path: "Assets/Scenes/\u8ABF\u914D\u5BA4(\u6E2C\u9A57).unity"
-    guid: 170dfef4c3a034d44b317ddc96f4160f
+    path: "Assets/Scenes/\u85E5\u5C40\u6DB2\u9AD4(\u7DF4\u7FD2).unity"
+    guid: d19d82dff2ae74a4ea132d8072c61250
+  - enabled: 0
+    path: "Assets/Scenes/UI/\u5834\u666F/ConnectVR.unity"
+    guid: d6d4fee91703a834eb6f6ad9447ca2fb
+  - enabled: 0
+    path: "Assets/Scenes/UI/\u5834\u666F/ConnectVR 1.unity"
+    guid: dccf43a158bf2054ab37a96cf0a86453
   m_configObjects:
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 86a69baf8e363414f83eac7447b0114b,
       type: 2}

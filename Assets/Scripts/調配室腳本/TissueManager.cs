@@ -7,6 +7,9 @@ public class TissueManager : MonoBehaviour
     public GameObject[] wetTissues;  // 沾濕的擦手紙陣列
     public GameObject wetTissue;     // 單一濕擦手紙物件
     public GameObject[] wrinkledTissues;  // 儲存所有皺摺擦手紙物件
+    public GameObject tips1;
+    public GameObject tips2;
+
     private bool isTouched = false;  // 用來判斷是否已經碰到水
     private bool isWetEffectComplete = false; // 用來判斷沾濕效果是否完成
     private bool isRotationStarted = false;  // 用來判斷旋轉效果是否已經啟動
@@ -60,6 +63,7 @@ public class TissueManager : MonoBehaviour
 
         // 最後一個擦手紙保持顯示
         wetTissues[wetTissues.Length - 1].SetActive(true);
+        if (tips1 != null) tips1.SetActive(true);
         isWetEffectComplete = true;  
     }
 
@@ -89,6 +93,7 @@ public class TissueManager : MonoBehaviour
 
         // 保證最後一個物件保持顯示
         wrinkledTissues[wrinkledTissues.Length - 1].SetActive(true);
+        if (tips2 != null) tips2.SetActive(true);
     }
 
     // 更新目前顯示的擦手紙

@@ -6,7 +6,8 @@ public class CollisionHandler : MonoBehaviour
 {
     public GameObject collision1; 
     public GameObject collision2; 
-    public GameObject appear; 
+    public GameObject appear;
+    public GameObject tips;
 
     // 當物體發生碰撞時觸發
     private void OnCollisionEnter(Collision collision)
@@ -18,6 +19,7 @@ public class CollisionHandler : MonoBehaviour
 
             // 顯示物件C
             appear.SetActive(true);
+            if (tips != null) tips.SetActive(true);
         }
     }
 }

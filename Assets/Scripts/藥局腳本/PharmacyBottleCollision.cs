@@ -6,6 +6,7 @@ public class PharmacyBottleCollision : MonoBehaviour
 {
     // 要顯示的物件陣列
     public GameObject parentObject;  // 父物件
+    public GameObject tips;
 
     private bool isTouched = false;  // 確保水柱只觸發一次
 
@@ -29,6 +30,7 @@ public class PharmacyBottleCollision : MonoBehaviour
             if (parentObject != null)
             {
                 parentObject.SetActive(true);
+                if (tips != null) tips.SetActive(true);
             }
         }
     }

@@ -31,6 +31,8 @@ TagManager:
   - Plane
   - PlaneTrigger
   - GlassJar
+  - GlassShard
+  - Dustpan
   layers:
   - Default
   - TransparentFX
@@ -45,8 +47,8 @@ TagManager:
   - split
   - SprinklerBox
   - SprinklerLid
-  - 
-  - 
+  - MirrorLayer
+  - MirrorTexture
   - 
   - 
   - 

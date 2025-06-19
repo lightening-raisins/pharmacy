@@ -5,45 +5,55 @@ using Valve.VR.InteractionSystem;
 
 public class BarrierControl : MonoBehaviour
 {
-    public GameObject foldingBarricade; // 摺疊封鎖線物件
-    public GameObject unfoldedBarricade;
-    public GameObject button1; // 第一個按鈕
-    public GameObject button2; // 第二個按鈕
+    public GameObject foldingBarricade;       // 摺疊封鎖線物件
+    public GameObject unfoldedBarricade;      // 展開的封鎖線物件
+    public GameObject button1;                // 第一個按鈕
+    public GameObject button2;                // 第二個按鈕
+    public GameObject tips1;
+    public GameObject tips2;
 
-    private bool isBarricadeHidden = false; // 用來判斷摺疊封鎖線是否隱藏
+    private bool button1Touched = false;
+    private bool button2Touched = false;
+    private bool hasUnfoldedShown = false;
 
     void Start()
     {
-        // 初始化時隱藏要顯示的物件
         unfoldedBarricade.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Triggered by: " + other.gameObject.name); // 顯示觸發的物件名稱
+        Debug.Log("Triggered by: " + other.gameObject.name);
 
-        // 當摺疊封鎖線碰觸第一個按鈕
-        if (other.gameObject == button1 && !isBarricadeHidden)
+        if (other.gameObject == button1 && !button1Touched)
         {
-            button1.SetActive(false); // 隱藏第一個按鈕
-            isBarricadeHidden = true;
-            Debug.Log("Folding barricade hidden");
+            button1Touched = true;
+            button1.SetActive(false);
+            Debug.Log("Button 1 touched");
         }
 
-        // 當任意物體碰觸到第二個按鈕，顯示物件
-        else if (other.gameObject == button2 && isBarricadeHidden)
+        if (other.gameObject == button2 && !button2Touched)
         {
-            SetObjectVisibility(foldingBarricade, false); // 隱藏摺疊封鎖線
+            button2Touched = true;
+            button2.SetActive(false);
+            Debug.Log("Button 2 touched");
+        }
+
+        // 如果兩個按鈕都被碰過，才顯示 unfoldedBarricade
+        if (button1Touched && button2Touched && !hasUnfoldedShown)
+        {
+            SetObjectVisibility(foldingBarricade, false);
             unfoldedBarricade.SetActive(true);
-            button2.SetActive(false); // 隱藏第二個按鈕
-            Debug.Log("objectToShow is now visible");
+            if (tips1 != null) tips1.SetActive(true);
+            if (tips2 != null) tips2.SetActive(true);
+            hasUnfoldedShown = true;
+            Debug.Log("Unfolded barricade is now visible");
         }
     }
 
     // 控制物件的顯示狀態
     private void SetObjectVisibility(GameObject obj, bool isVisible)
     {
-        // 如果物件有 Renderer 組件
         if (obj != null)
         {
             Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
